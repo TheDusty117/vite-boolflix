@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import axios from 'axios'
 
+import store from './store';
+
 import Header from './components/Header.vue';
 
 import Main from './components/Main.vue';
@@ -16,7 +18,8 @@ export default{
   //grazie a postman posso vedere che l'api mi restituisce "results" che e' l'array che continene tutti i vari oggetti-film, ora voglio prendere con fetch e salvarmelo dentro films:[]
   data(){
     return{
-      films: []
+      // films: [],
+      store,
     }
   },
   methods:{
@@ -30,11 +33,12 @@ export default{
         //accedo grazie a then nel mio array di film e result quindi
         console.log(res.data.results)
         //appena viene fatta la chiamata assegno a films , res.data.restuls 
-        this.films = res.data.results
+        this.store.films = res.data.results
       })
     }
   },
   created(){
+    console.log('store',this.store)
     this.fetchFilms()
   },
 }
@@ -51,7 +55,8 @@ export default{
   <Main />
   
   <ul>
-    <li v-for="film in films" :key="film.id">
+    <li v-for="film in store.films" :key="film.id">
+      <img src="" alt="">
       <h1>{{ film.title }}</h1>
     </li>
   </ul>
