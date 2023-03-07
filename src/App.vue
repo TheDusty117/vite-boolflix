@@ -1,15 +1,33 @@
-<script setup>
+<script>
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from './components/Header.vue';
+
+import Main from './components/Main.vue';
+
+export default{
+  components: {
+    Header,
+    Main,
+  }
+}
+
+
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      
-    </div>
-  </div>
+
+  <Header />
+
+  <Main />
+  
 </template>
 
-<style scoped>
+<style lang="scss">
+@use './style/general.scss' as *;
+
+body{
+  background-color: teal;
+}
 
 </style>
