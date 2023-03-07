@@ -42,7 +42,7 @@ export default{
 
 </script>
 
-
+<!--        TEMPLATE         ------------------------------->
 
 <template>
 
@@ -50,11 +50,18 @@ export default{
 
   <Main />
   
-  <div v-for="film in films" :key="film.id">
-    <h1>{{ film.title }}</h1>
-  </div>
+  <ul>
+    <li v-for="film in films" :key="film.id">
+      <h1>{{ film.title }}</h1>
+    </li>
+  </ul>
 
 </template>
+
+
+
+
+
 
 <style lang="scss">
 @use './style/general.scss' as *;

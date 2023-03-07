@@ -1,5 +1,6 @@
 <script>
 
+
 export default {
   
 }
@@ -11,15 +12,12 @@ export default {
     <section class="bg-black"> 
       <div class="container posters">
         <div class="row justify-content-between align-items-center">
-          <div class="col-4">
-            film
-          </div>
-          <div class="col-4">
-            film
-          </div>
-          <div class="col-4">
-            film
-          </div>
+          <ul class="films">
+            <li class="film-card">
+              <img src="" alt="">
+              <h3 class="film-name"></h3>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

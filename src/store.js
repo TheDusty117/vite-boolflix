@@ -6,7 +6,7 @@ import { reactive } from "vue";
 const store = reactive({
 
   films: [],
-  search: '',
+  // search: '',
 
 })
 
