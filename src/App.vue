@@ -9,7 +9,22 @@ export default{
   components: {
     Header,
     Main,
-  }
+  },
+
+  data(){
+    return{
+      films:[]
+    }
+  },
+  methods:{
+    fetchFilms(){
+      console.log('fetching data')
+      //fare chiamata in get ad endpoint
+    }
+  },
+  created(){
+    this.fetchFilms()
+  },
 }
 
 

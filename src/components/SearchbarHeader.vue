@@ -12,6 +12,9 @@ export default {
 </script>
 
 <template>
+  <div class="col-4">
+    <input type="text" placeholder="cerca un film/serie">
+  </div>
 
 </template>
 
