@@ -54,12 +54,12 @@ export default{
 
   <Main />
   
-  <ul>
+  <!-- <ul>
     <li v-for="film in store.films" :key="film.id">
       <img src="" alt="">
       <h1>{{ film.title }}</h1>
     </li>
-  </ul>
+  </ul> -->
 
 </template>
 

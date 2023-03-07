@@ -1,9 +1,22 @@
 <script>
 
+import CardMain from './CardMain.vue';
+
 import store from '../store';
 
+
+
 export default {
-  
+  components:{
+    CardMain,
+  },
+
+  data(){
+    return{
+      // films: [],
+      store,
+    }
+  },
 }
 
 </script>
@@ -13,12 +26,13 @@ export default {
     <section class="bg-black"> 
       <div class="container posters">
         <div class="row justify-content-between align-items-center">
+
           <ul class="films">
-            <li class="film-card">
-              <img src="" alt="">
-              <h3 class="film-name"></h3>
-            </li>
+            <!--LA CARD VIENE CICLATA-->
+            <CardMain v-for="el in store.films" :key="el.id" :film="el" />
+
           </ul>
+
         </div>
       </div>
     </section>
@@ -38,6 +52,13 @@ main{
 
 .posters{
   min-height: 200px;
+}
+
+
+.films{
+  li{
+    
+  }
 }
 
 </style>
