@@ -5,7 +5,8 @@ import store from '../store';
 export default {
   data(){
     return{
-      
+      store,
+      search: '',
     }
   }
 }
@@ -14,7 +15,7 @@ export default {
 
 <template>
   <div class="col-4">
-    <input type="text" placeholder="cerca un film/serie">
+    <input type="text" @keyup.enter="$emit('onSearch')" placeholder="cerca un film/serie">
   </div>
 
 </template>

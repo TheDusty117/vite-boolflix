@@ -15,8 +15,9 @@
 
   <li>
     <img src="" alt="">
-    <h3>{{ film.original_title }}</h3>
     <h3>{{ film.title }}</h3>
+    <h3>{{ film.original_title }}</h3>
+    <p>{{ film.overview }}</p>
   </li>
 
 </template>
