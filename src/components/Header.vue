@@ -1,11 +1,19 @@
 <script>
 
+import store from '../store';
+
 import SearchbarHeader from './SearchbarHeader.vue';
 
 export default {
   components:{
-    SearchbarHeader
-  }
+    SearchbarHeader,
+  },
+
+  data(){
+    return{
+      store,
+    }
+  },
 }
 
 </script>
