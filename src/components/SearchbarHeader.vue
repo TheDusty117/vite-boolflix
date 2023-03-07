@@ -1,0 +1,19 @@
+<script>
+import store from '../../store';
+
+export default {
+  data(){
+    return{
+      
+    }
+  }
+}
+
+</script>
+
+<template>
+
+</template>
+
+<style lang="scoped">
+</style>
