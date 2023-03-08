@@ -3,6 +3,10 @@ import { reactive } from "vue";
 
 // creo variabile store con oggetto
 
+// const basePath = 'https://image.tmdb.org/t/p'
+// const imageSize = 'w342'
+// const fileName = {{item.poster_path}}
+
 const store = reactive({
 
   movies: [],

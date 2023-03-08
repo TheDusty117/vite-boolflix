@@ -33,15 +33,15 @@ export default {
     <section class="bg-black"> 
       <div class="container posters">
         <div class="row justify-content-between align-items-center">
-
-          <h2>FILM</h2>
+          
+          <h2 class="bg-danger">FILM</h2>
           <ul class="films grid">
             <!--LA CARD VIENE CICLATA-->
             <CardMain v-for="el in store.movies" :key="el.id" :item="el" />
 
           </ul>
 
-          <h2>SERIE TV</h2>
+          <h2 class="bg-danger">SERIE TV</h2>
           <ul class="films grid">
 
             <CardMain v-for="el in store.tvs" :key="el.id" :item="el" />
@@ -56,11 +56,11 @@ export default {
 
 <style lang="scss" scoped>
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 40px
-}
+// .grid{
+//   display: grid;
+//   grid-template-columns: repeat(4,1fr);
+//   gap: 40px
+// }
 
 main{
   color: white;

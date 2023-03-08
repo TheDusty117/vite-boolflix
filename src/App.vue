@@ -39,7 +39,6 @@ export default{
       .get('https://api.themoviedb.org/3/search/tv?api_key=721c5aed0cfc1266b55669523e4a8355&language=it-IT',{
         params: {
           query: this.store.search
-          
         }
       })
       .then((res)=>{
@@ -54,7 +53,7 @@ export default{
     //FUNZIONE DI RICERCA FILM---------
     fetchMovies(){
       console.log('fetching data')
-      //fare chiamata in get ad endpoint
+
       axios
       .get('https://api.themoviedb.org/3/search/movie?api_key=721c5aed0cfc1266b55669523e4a8355&language=it-IT',{
         params: {
@@ -62,11 +61,8 @@ export default{
           query: this.store.search
         }
       })
-      //si usa arrow function perche' ci consente di acceder qui sopra a FILMS:[]
       .then((res)=>{
-        //accedo grazie a then nel mio array di film e result quindi
         console.log(res.data.results)
-        //appena viene fatta la chiamata assegno a films , res.data.restuls 
         this.store.movies = res.data.results
       })
       .catch(err => {
@@ -79,6 +75,7 @@ export default{
       console.log(this.onSearchFn)
     }
   },
+  
   created(){
     console.log('store',this.store)
     this.fetchMovies()
