@@ -6,8 +6,12 @@ import { reactive } from "vue";
 const store = reactive({
 
   movies: [],
-  tv:[],
+  tvs:[],
   search: '',
+  // imageSize: {
+  //   format: 'poster_size',
+  //   size: 'w500'
+  // }
 
 })
 

@@ -6,7 +6,6 @@ import axios from 'axios'
 import store from './store';
 
 import Header from './components/Header.vue';
-
 import Main from './components/Main.vue';
 // import SearchbarHeader from './components/SearchbarHeader.vue';
 
@@ -24,7 +23,36 @@ export default{
     }
   },
   methods:{
-    fetchFilms(){
+    fetchData() {
+      console.log('fetch data movies and tvs')
+
+      // this.fetchMovies()
+      // this.fetchData()
+      // usare questo fetch data anche per le serie tv
+    },
+
+    //FUNZIONE DI RICERCA SERIE TV---------
+    fetchTVs(){
+      console.log('fetching data 2')
+
+      axios
+      .get('https://api.themoviedb.org/3/search/tv?api_key=721c5aed0cfc1266b55669523e4a8355&language=it-IT',{
+        params: {
+          query: this.store.search
+          
+        }
+      })
+      .then((res)=>{
+        console.log(res.data.results)
+        this.store.tvs = res.data.results
+      })
+      .catch(err=> {
+        this.store.tvs=[]
+      })
+    },
+
+    //FUNZIONE DI RICERCA FILM---------
+    fetchMovies(){
       console.log('fetching data')
       //fare chiamata in get ad endpoint
       axios
@@ -41,15 +69,20 @@ export default{
         //appena viene fatta la chiamata assegno a films , res.data.restuls 
         this.store.movies = res.data.results
       })
+      .catch(err => {
+        this.store.movies=[]
+      })
     },
     onSearchFn(){
-      this.fetchFilms()
+      this.fetchMovies()
+      this.fetchTVs()
       console.log(this.onSearchFn)
     }
   },
   created(){
     console.log('store',this.store)
-    this.fetchFilms()
+    this.fetchMovies()
+    this.fetchTVs()
   },
 }
 
@@ -60,7 +93,7 @@ export default{
 
 <template>
 
-  <Header @onSearch="fetchFilms"/>
+  <Header @onSearch="onSearchFn"/>
 
   <Main  />
   
@@ -82,7 +115,7 @@ export default{
 @use './style/general.scss' as *;
 
 body{
-  background-color: teal;
+  background-color: #808080;
 }
 
 </style>

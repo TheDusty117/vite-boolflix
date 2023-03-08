@@ -15,8 +15,15 @@ export default {
     return{
       // films: [],
       store,
+      
     }
   },
+  computed: {
+    items(){
+      return this.store.movies
+
+    }
+  }
 }
 
 </script>
@@ -27,9 +34,17 @@ export default {
       <div class="container posters">
         <div class="row justify-content-between align-items-center">
 
-          <ul class="films">
+          <h2>FILM</h2>
+          <ul class="films grid">
             <!--LA CARD VIENE CICLATA-->
-            <CardMain v-for="el in store.movies" :key="el.id" :movie="el" />
+            <CardMain v-for="el in store.movies" :key="el.id" :item="el" />
+
+          </ul>
+
+          <h2>SERIE TV</h2>
+          <ul class="films grid">
+
+            <CardMain v-for="el in store.tvs" :key="el.id" :item="el" />
 
           </ul>
 
@@ -40,6 +55,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 40px
+}
 
 main{
   color: white;
