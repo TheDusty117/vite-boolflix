@@ -29,7 +29,7 @@ export default {
 
           <ul class="films">
             <!--LA CARD VIENE CICLATA-->
-            <CardMain v-for="el in store.films" :key="el.id" :film="el" />
+            <CardMain v-for="el in store.movies" :key="el.id" :movie="el" />
 
           </ul>
 

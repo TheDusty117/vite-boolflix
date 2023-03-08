@@ -12,7 +12,7 @@ export default {
   data(){
     return{
       store,
-      
+    
     }
   },
   methods:{
@@ -20,6 +20,9 @@ export default {
     //   this.fetchFilms()
     //   console.log(this.onSearchFn)
     // }
+    consoleFn(){
+      console.log(this.consoleFn, 'il click funza')
+    }
   }
 }
 
@@ -33,7 +36,7 @@ export default {
           <div class="col-4">
             <h1 class="main-logo">NETFLIX</h1>
           </div>
-            <SearchbarHeader @onSearch=""/>
+          <SearchbarHeader @onSearch="$emit('onSearch')"/>
         </div>
       </div>
     </section>

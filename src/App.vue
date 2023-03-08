@@ -8,7 +8,7 @@ import store from './store';
 import Header from './components/Header.vue';
 
 import Main from './components/Main.vue';
-import SearchbarHeader from './components/SearchbarHeader.vue';
+// import SearchbarHeader from './components/SearchbarHeader.vue';
 
 export default{
   components: {
@@ -30,7 +30,8 @@ export default{
       axios
       .get('https://api.themoviedb.org/3/search/movie?api_key=721c5aed0cfc1266b55669523e4a8355&language=it-IT',{
         params: {
-          query: 'back to the'
+          //IMPORTANTE, VA USATO IL THIS E POI SEGUITO IL PERCORSO PER ARRIVARE ALLO STORE!!!
+          query: this.store.search
         }
       })
       //si usa arrow function perche' ci consente di acceder qui sopra a FILMS:[]
@@ -38,7 +39,7 @@ export default{
         //accedo grazie a then nel mio array di film e result quindi
         console.log(res.data.results)
         //appena viene fatta la chiamata assegno a films , res.data.restuls 
-        this.store.films = res.data.results
+        this.store.movies = res.data.results
       })
     },
     onSearchFn(){
@@ -59,7 +60,7 @@ export default{
 
 <template>
 
-  <Header />
+  <Header @onSearch="fetchFilms"/>
 
   <Main  />
   

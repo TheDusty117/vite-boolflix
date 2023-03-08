@@ -3,7 +3,7 @@
   export default {
     
     props: {
-      film:{
+      movie:{
         type: Object,
         required: true
       }
@@ -15,9 +15,9 @@
 
   <li>
     <img src="" alt="">
-    <h3>{{ film.title }}</h3>
-    <h3>{{ film.original_title }}</h3>
-    <p>{{ film.overview }}</p>
+    <h3>{{ movie.title }}</h3>
+    <h3>{{ movie.original_title }}</h3>
+    <p>{{ movie.overview }}</p>
   </li>
 
 </template>

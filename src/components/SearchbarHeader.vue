@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div class="col-4">
-    <input type="text" @keyup.enter="$emit('onSearch')" placeholder="cerca un film/serie">
+    <input type="text" @keyup.enter="$emit('onSearch')" placeholder="cerca un film/serie" v-model="store.search">
   </div>
 
 </template>
