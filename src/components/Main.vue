@@ -18,12 +18,12 @@ export default {
       
     }
   },
-  computed: {
-    items(){
-      return this.store.movies
+  // computed: {
+  //   items(){
+  //     // return this.store.movies
 
-    }
-  }
+  //   }
+  // }
 }
 
 </script>
@@ -56,11 +56,12 @@ export default {
 
 <style lang="scss" scoped>
 
-// .grid{
-//   display: grid;
-//   grid-template-columns: repeat(4,1fr);
-//   gap: 40px
-// }
+.grid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  gap: 40px
+}
 
 main{
   color: white;

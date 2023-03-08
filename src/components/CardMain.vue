@@ -25,6 +25,15 @@
         if (this.item.original_language === 'ja'){
           return '/images/japanese.jpg'
         }
+        if (this.item.original_language === 'ko'){
+          return '/images/korean.jpg'
+        }
+        if (this.item.original_language === 'en'){
+          return '/images/english.webp'
+        }
+        if (this.item.original_language === 'zh'){
+          return '/images/chinese.webp'
+        }
       }
     }
     
@@ -35,11 +44,11 @@
 
   <li>
     <!-- <img src="" alt=""> -->
-    <img :src="createImgPath()" alt="">
+    <img class="main-poster" :src="createImgPath()" alt="">
     <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
     <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
-    <img :src="createFlag()" alt="">
-    <p>{{ item.original_language }}</p>
+    <img class="language-flag" :src="createFlag()" alt="">
+    <!-- <p>{{ item.original_language }}</p> -->
     <p>{{ item.vote_average }}</p>
     
   </li>
@@ -47,4 +56,18 @@
 </template>
 
 <style lang="scss" scoped>
+
+li{
+  .main-poster{
+    width: 300px;
+    
+  }
+  .language-flag{
+    width: 50px;
+  }
+  h3, h4{
+    font-size: 18px;
+  }
+}
+
 </style>
