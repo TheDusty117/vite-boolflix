@@ -57,7 +57,7 @@
     <!-- <p>{{ item.original_language }}</p> -->
     <!-- <p>{{ item.vote_average }}</p> -->
     <p>{{ convertVote(item.vote_average) }}</p>
-    
+    <font-awesome-icon icon="fa-solid fa-star" />
   </li>
 
 </template>

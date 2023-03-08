@@ -75,7 +75,7 @@ export default{
       console.log(this.onSearchFn)
     }
   },
-  
+
   created(){
     console.log('store',this.store)
     this.fetchMovies()
@@ -89,9 +89,13 @@ export default{
 <!--        TEMPLATE         ------------------------------->
 
 <template>
+  
+  
+  
+  
 
   <Header @onSearch="onSearchFn"/>
-
+ 
   <Main  />
   
   <!-- <ul>
