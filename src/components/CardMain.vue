@@ -37,14 +37,8 @@
           return '/images/chinese.webp'
         }
       },
-      floorVote(votooriginale){
-        return Math.ceil(votooriginale)
-      },
-     
-      formatVote(){
-        for(let i= this.item.vote_average; i < 10; i+= 2){
-          
-        }
+      convertVote(votooriginale){
+        return Math.floor(votooriginale / 2)
       }
 
     }
@@ -61,8 +55,8 @@
     <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
     <img class="language-flag" :src="createFlag()" alt="">
     <!-- <p>{{ item.original_language }}</p> -->
-    <p>{{ item.vote_average }}</p>
-    <p>{{ floorVote(this.item.vote_average) }}</p>
+    <!-- <p>{{ item.vote_average }}</p> -->
+    <p>{{ convertVote(item.vote_average) }}</p>
     
   </li>
 
