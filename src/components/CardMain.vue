@@ -5,6 +5,8 @@
   const basePath = 'https://image.tmdb.org/t/p/'
 
   const imageSize = 'w342'
+
+  
   
   // const fileName = item.poster_path
 
@@ -34,7 +36,17 @@
         if (this.item.original_language === 'zh'){
           return '/images/chinese.webp'
         }
+      },
+      floorVote(votooriginale){
+        return Math.ceil(votooriginale)
+      },
+     
+      formatVote(){
+        for(let i= this.item.vote_average; i < 10; i+= 2){
+          
+        }
       }
+
     }
     
   }
@@ -50,6 +62,7 @@
     <img class="language-flag" :src="createFlag()" alt="">
     <!-- <p>{{ item.original_language }}</p> -->
     <p>{{ item.vote_average }}</p>
+    <p>{{ floorVote(this.item.vote_average) }}</p>
     
   </li>
 
