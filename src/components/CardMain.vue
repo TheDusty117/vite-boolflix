@@ -25,6 +25,7 @@
     <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
     <p>{{ item.original_language }}</p>
     <p>{{ item.vote_average }}</p>
+    <img src="" alt="">
     <h2>image.tmdb.org/t/p/w342{{ item.poster_path }}</h2>
     
   </li>

@@ -8,10 +8,11 @@ const store = reactive({
   movies: [],
   tvs:[],
   search: '',
-  // imageSize: {
-  //   format: 'poster_size',
-  //   size: 'w500'
-  // }
+  //creare un dato che reperisco dall'api,
+  //che concateni:
+  //base
+  //formato
+  //item.poster_path
 
 })
 
