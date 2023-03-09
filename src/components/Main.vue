@@ -31,17 +31,17 @@ export default {
 <template>
   <main>
     <section class="bg-black"> 
-      <div class="container posters">
+      <div class="container2 posters">
         <div class="row justify-content-between align-items-center">
           
-          <h2 class="bg-danger">FILM</h2>
+          <h2 class="content-type">FILM</h2>
           <ul class="films grid">
             <!--LA CARD VIENE CICLATA-->
             <CardMain v-for="el in store.movies" :key="el.id" :item="el" />
 
           </ul>
 
-          <h2 class="bg-danger">SERIE TV</h2>
+          <h2 class="content-type">SERIE TV</h2>
           <ul class="films grid">
 
             <CardMain v-for="el in store.tvs" :key="el.id" :item="el" />
@@ -56,9 +56,16 @@ export default {
 
 <style lang="scss" scoped>
 
+section{
+  padding-top: 170px;
+}
+.container2{
+  width: 1920px;
+  margin: 0 auto;
+}
 .grid{
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(5,1fr);
   justify-content: center;
   gap: 40px
 }
@@ -81,6 +88,11 @@ main{
   li{
     
   }
+}
+
+.content-type{
+  background: rgb(0,0,0);
+background: linear-gradient(261deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 52%, rgba(255,0,0,1) 100%);
 }
 
 </style>

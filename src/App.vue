@@ -116,7 +116,7 @@ export default{
 @use './style/general.scss' as *;
 
 body{
-  background-color: #808080;
+  background-color: black;
 }
 
 </style>

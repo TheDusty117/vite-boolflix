@@ -68,9 +68,9 @@
       <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
       <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
       <img class="language-flag" :src="createFlag()" alt="">
-      <p>{{ item.original_language }}</p>
-  
-      <p>{{ convertVote(item.vote_average) }}</p>
+      <!-- <p>{{ item.original_language }}</p> -->
+      <p class="item-overview">{{ item.overview }}</p>
+      <!-- <p>{{ convertVote(item.vote_average) }}</p> -->
   
       <ul class="d-flex p-0">
         <li v-for="n in 5">
@@ -104,12 +104,20 @@
 
 li{
   .main-poster{
-    width: 300px;
-    
+    width: 350px;
+    height: 525px;
+    h3{
+      width: 90%;
+    }
   }
   .language-flag{
-    width: 50px;
+    width: 20px;
   }
+  
+  .item-overview{
+    width: 90%;
+  }
+
   h3, h4{
     font-size: 18px;
   }
