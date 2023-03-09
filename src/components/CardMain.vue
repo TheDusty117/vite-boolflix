@@ -18,6 +18,17 @@
         required: true
       }
     },
+    data(){
+      return {
+        flags: {
+          // it:
+          en: '/images/english.webp',
+          jp: '/images/japanese.jpg',
+          ko: '/images/korean.jpg',
+          ch: '/images/chinese.webp',
+        }
+      }
+    },
     methods:{
       //questa funzione concatena le varie stringhe di path base e dimensione immagine, aggiunte a cio' che si trova dentro this.item.poster_path
       createImgPath(){
@@ -35,10 +46,22 @@
         }
         if (this.item.original_language === 'zh'){
           return '/images/chinese.webp'
-        }
+        } 
       },
       convertVote(votooriginale){
-        return Math.floor(votooriginale / 2)
+        return Math.ceil(votooriginale / 2)
+      },
+      getStars(voto){
+        voto = Math.ceil(voto /2)
+        let output = [];
+
+        for (let i = voto; i >= 1; i--)
+          output.push('+')
+        
+        for(let i = (5 - voto); i >= 1; i--)
+          output.push('o')
+
+        return output.join('')
       }
 
     }
@@ -54,15 +77,29 @@
     <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
     <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
     <img class="language-flag" :src="createFlag()" alt="">
-    <!-- <p>{{ item.original_language }}</p> -->
+    <p>{{ item.original_language }}</p>
     <!-- <p>{{ item.vote_average }}</p> -->
     <p>{{ convertVote(item.vote_average) }}</p>
 
-    <font-awesome-icon class="fullstar" icon="fa-solid fa-star" />
-    <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
-    <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
-    <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
-    <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
+    <h2>{{ getStars(item.vote_average) }}</h2>
+    <h2>{{ getStars(item.vote_average) }}</h2>
+
+    
+    <!-- <ul class="d-flex p-0">
+      <li>
+        <font-awesome-icon class="fullstar" icon="fa-solid fa-star" />
+      </li>
+      <li>
+        <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
+      </li>
+      <li>
+        <font-awesome-icon class="fullstar" icon="fa-regular fa-star" />
+      </li>
+      <li>
+        <font-awesome-icon class="emptystar" icon="fa-regular fa-star" />
+      </li>
+    </ul> -->
+    
 
   </li>
 
