@@ -20,6 +20,7 @@
     },
     data(){
       return {
+        isHovering: false,
         flags: {
           // it:
           en: '/images/english.webp',
@@ -60,10 +61,10 @@
 
 <template>
 
-  <li class="card-item">
+  <li class="card-item" @mouseenter="isHovering=true" @mouseleave="isHovering=false" >
     
-    <img class="main-poster" :src="createImgPath()" alt="">
-    <div class="hide-specs">
+    <img class="main-poster"  :src="createImgPath()" alt="">
+    <div class="specs"  :class="isHovering === true ? 'd-block' : 'd-none' " >
       <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
       <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
       <img class="language-flag" :src="createFlag()" alt="">
@@ -90,7 +91,9 @@
 
 .card-item{
   position: relative;
-  .hide-specs{
+
+  
+  .specs{
     position: absolute;
     top: 0%;
     background-color: rgba(0, 0, 0, 0.788);
