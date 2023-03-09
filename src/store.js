@@ -12,6 +12,7 @@ const store = reactive({
   movies: [],
   tvs:[],
   search: '',
+  hover: true
   //creare un dato che reperisco dall'api,
   //che concateni:
   //base

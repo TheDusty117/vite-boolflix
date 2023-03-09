@@ -51,18 +51,7 @@
       convertVote(votooriginale){
         return Math.ceil(votooriginale / 2)
       },
-      getStars(voto){
-        voto = Math.ceil(voto /2)
-        let output = [];
-
-        for (let i = voto; i >= 1; i--)
-          output.push('+')
-        
-        for(let i = (5 - voto); i >= 1; i--)
-          output.push('o')
-
-        return output.join('')
-      }
+     
 
     }
     
@@ -71,41 +60,44 @@
 
 <template>
 
-  <li>
-    <!-- <img src="" alt=""> -->
+  <li class="card-item">
+    
     <img class="main-poster" :src="createImgPath()" alt="">
-    <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
-    <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
-    <img class="language-flag" :src="createFlag()" alt="">
-    <p>{{ item.original_language }}</p>
-    <!-- <p>{{ item.vote_average }}</p> -->
-    <p>{{ convertVote(item.vote_average) }}</p>
-
-    <h2>{{ getStars(item.vote_average) }}</h2>
-    <h2>{{ getStars(item.vote_average) }}</h2>
-
-    
-    <!-- <ul class="d-flex p-0">
-      <li>
-        <font-awesome-icon class="fullstar" icon="fa-solid fa-star" />
-      </li>
-      <li>
-        <font-awesome-icon class="emptystar" icon="fa-solid fa-star" />
-      </li>
-      <li>
-        <font-awesome-icon class="fullstar" icon="fa-regular fa-star" />
-      </li>
-      <li>
-        <font-awesome-icon class="emptystar" icon="fa-regular fa-star" />
-      </li>
-    </ul> -->
-    
+    <div class="hide-specs">
+      <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
+      <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
+      <img class="language-flag" :src="createFlag()" alt="">
+      <p>{{ item.original_language }}</p>
+  
+      <p>{{ convertVote(item.vote_average) }}</p>
+  
+      <ul class="d-flex p-0">
+        <li v-for="n in 5">
+          <!-- <h1>{{ n }}</h1> -->
+          <font-awesome-icon
+          :icon="n <= convertVote(item.vote_average)? 'fa-solid fa-star' : 'fa-regular fa-star' "
+          :class="n <= convertVote(item.vote_average)? 'fullstar' : '' "
+           />
+        </li>
+      </ul>
+    </div>
 
   </li>
 
 </template>
 
 <style lang="scss" scoped>
+
+.card-item{
+  position: relative;
+  .hide-specs{
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.788);
+    width: 100%;
+    height: 100%;
+  }
+}
 
 li{
   .main-poster{
