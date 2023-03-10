@@ -54,6 +54,27 @@
       },
      
 
+    },
+    computed:{
+      title(){
+        return this.item.title
+      },
+      name(){
+        return this.item.name
+      },
+      original_title(){
+        return this.item.original_title
+      },
+      original_name(){
+        return this.item.original_name
+      },
+      overview(){
+        return this.item.overview
+      },
+      vote_average(){
+        return this.item.vote_average
+      }
+
     }
     
   }
@@ -65,19 +86,17 @@
     
     <img class="main-poster"  :src="createImgPath()" alt="">
     <div class="specs"  :class="isHovering === true ? 'd-block' : 'd-none' " >
-      <h3>{{ item.title === undefined ? item.name : item.title }}</h3>
-      <h4>{{ item.original_title === undefined ? item.original_name : item.original_title }}</h4>
+      <h3>{{ title === undefined ? name : title }}</h3>
+      <h4>{{ original_title === undefined ? original_name : original_title }}</h4>
       <img class="language-flag" :src="createFlag()" alt="">
-      <!-- <p>{{ item.original_language }}</p> -->
-      <p class="item-overview">{{ item.overview }}</p>
-      <!-- <p>{{ convertVote(item.vote_average) }}</p> -->
+      <p class="item-overview">{{ overview }}</p>
+
   
       <ul class="d-flex p-0">
         <li v-for="n in 5">
-          <!-- <h1>{{ n }}</h1> -->
           <font-awesome-icon
-          :icon="n <= convertVote(item.vote_average)? 'fa-solid fa-star' : 'fa-regular fa-star' "
-          :class="n <= convertVote(item.vote_average)? 'fullstar' : '' "
+          :icon="n <= convertVote(vote_average)? 'fa-solid fa-star' : 'fa-regular fa-star' "
+          :class="n <= convertVote(vote_average)? 'fullstar' : '' "
            />
         </li>
       </ul>

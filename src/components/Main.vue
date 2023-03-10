@@ -34,19 +34,23 @@ export default {
       <div class="container2 posters">
         <div class="row justify-content-between align-items-center">
           
-          <h2 class="content-type">FILM</h2>
-          <ul class="films grid">
-            <!--LA CARD VIENE CICLATA-->
-            <CardMain v-for="el in store.movies" :key="el.id" :item="el" />
+          <div class="col-12">
+            
+            <h2 class="content-type">FILM</h2>
+            <ul class="films grid p-2">
+              <!--LA CARD VIENE CICLATA-->
+              <CardMain v-for="el in store.movies" :key="el.id" :item="el" />
+  
+            </ul>
+  
+            <h2 class="content-type">SERIE TV</h2>
+            <ul class="films grid p-2">
+  
+              <CardMain v-for="el in store.tvs" :key="el.id" :item="el" />
+  
+            </ul>
 
-          </ul>
-
-          <h2 class="content-type">SERIE TV</h2>
-          <ul class="films grid">
-
-            <CardMain v-for="el in store.tvs" :key="el.id" :item="el" />
-
-          </ul>
+          </div>
 
         </div>
       </div>
